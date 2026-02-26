@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 public class CharacterTouchTrigger : MonoBehaviour
 {
     private int score = 0;
-    public int highScore = 1;
-    public string nextScene = "";
+    public int highScore = 2;
+    public Animation a;
+    public Door doorScript;
     public TextMeshProUGUI scoreCounter;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void OnTriggerEnter(Collider other)
@@ -28,7 +29,8 @@ public class CharacterTouchTrigger : MonoBehaviour
         scoreCounter.SetText("Keys Aquired: " + score + "/" + highScore);
         if (score == highScore)
         {
-            SceneManager.LoadScene(nextScene);
+            a.Play();
+            doorScript.levelComplete = true;
         }
     }
 }
