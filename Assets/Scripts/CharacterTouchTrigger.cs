@@ -17,11 +17,23 @@ public class CharacterTouchTrigger : MonoBehaviour
             incrementScore();
             Destroy(other.gameObject);
         }
+        else if (other.gameObject.CompareTag("kill"))
+        {
+            kill();
+        }
     }
 
     public void Start()
     {
         scoreCounter.SetText("Keys Aquired: 0/" + highScore);
+    }
+
+    public void Update()
+    {
+        if (transform.position.y < -200)
+        {
+            kill();
+        }
     }
     private void incrementScore()
     {
@@ -32,5 +44,11 @@ public class CharacterTouchTrigger : MonoBehaviour
             a.Play();
             doorScript.levelComplete = true;
         }
+    }
+
+    private void kill()
+    {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(currentSceneName);
     }
 }
