@@ -6,8 +6,10 @@ public class CharacterTouchTrigger : MonoBehaviour
 {
     private int score = 0;
     private int highScore = 2;
-    public Animation a;
     public Door doorScript;
+    public Animation a;
+    public AudioSource death;
+    public AudioSource collect;
     public TextMeshProUGUI scoreCounter;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void OnTriggerEnter(Collider other)
@@ -25,20 +27,21 @@ public class CharacterTouchTrigger : MonoBehaviour
 
     public void Start()
     {
+        Time.timeScale = 1;
         highScore = GameObject.FindGameObjectsWithTag("Collectables").Length;
         scoreCounter.SetText("Keys Aquired: 0/" + highScore);
-        
     }
 
     public void Update()
     {
-        if (transform.position.y < -200)
+        if (transform.position.y < -100)
         {
             kill();
         }
     }
     private void incrementScore()
     {
+        collect.Play();
         score++;
         scoreCounter.SetText("Keys Aquired: " + score + "/" + highScore);
         if (score == highScore)
@@ -49,6 +52,17 @@ public class CharacterTouchTrigger : MonoBehaviour
     }
 
     private void kill()
+    {
+        
+        death.Play();
+        float timeDelay = 0.3F;
+        Invoke("ReloadScene", timeDelay);
+        Time.timeScale = 0.1F;
+
+        
+    }
+
+    private void ReloadScene()
     {
         string currentSceneName = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(currentSceneName);
