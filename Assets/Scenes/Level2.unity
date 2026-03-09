@@ -2170,6 +2170,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NestedParentArmature_Unpack
       objectReference: {fileID: 0}
+    - target: {fileID: 3861248243034821673, guid: f090d697dca17e2fb80a1b33169891fa, type: 3}
+      propertyPath: m_ClearFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4958856185479151441, guid: f090d697dca17e2fb80a1b33169891fa, type: 3}
       propertyPath: a
       value: 

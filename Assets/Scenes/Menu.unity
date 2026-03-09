@@ -1119,7 +1119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1134c29762a3d824784efc0b50667352, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuController
-  LevelToLoad: LevelTemplate
+  LevelToLoad: Level1
 --- !u!1 &1824441043
 GameObject:
   m_ObjectHideFlags: 0
