@@ -38,6 +38,11 @@ public class CharacterTouchTrigger : MonoBehaviour
         {
             kill();
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Menu");
+        }
     }
     private void incrementScore()
     {

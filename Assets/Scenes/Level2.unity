@@ -1765,7 +1765,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Door
   levelComplete: 0
-  nextScene: Menu
+  nextScene: Level3
 --- !u!111 &1244071745 stripped
 Animation:
   m_CorrespondingSourceObject: {fileID: 2223639932434330405, guid: adb07def44733c6679567c92512a5f90, type: 3}
