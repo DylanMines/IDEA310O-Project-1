@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class CharacterTouchTrigger : MonoBehaviour
 {
     private int score = 0;
-    public int highScore = 2;
+    private int highScore = 2;
     public Animation a;
     public Door doorScript;
     public TextMeshProUGUI scoreCounter;
@@ -25,7 +25,9 @@ public class CharacterTouchTrigger : MonoBehaviour
 
     public void Start()
     {
+        highScore = GameObject.FindGameObjectsWithTag("Collectables").Length;
         scoreCounter.SetText("Keys Aquired: 0/" + highScore);
+        
     }
 
     public void Update()
